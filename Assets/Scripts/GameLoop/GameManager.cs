@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     void SanityUpdate()
     {
-        
+        //TODO: FIX
     }
 
     public void BackToMenu()
