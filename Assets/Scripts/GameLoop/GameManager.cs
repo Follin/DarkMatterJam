@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int _killLimit = 10;
 
+    private int _score;
+
     [SerializeField] bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone    
 
     private void Awake()
@@ -30,5 +32,16 @@ public class GameManager : MonoBehaviour
 
     public void AddKillToPlayer() => ++_amoutOfKillsDark;
 
-    public bool InDarkWorld() => _inDarkSpace;     
+    public bool InDarkWorld() => _inDarkSpace;  
+    
+    public void IncreaseScore()
+    {
+        _score++;
+        if(_score > GetHighScore)
+        {
+            PlayerPrefs.SetInt("Highscore", _score);
+        }
+    }
+
+    private int GetHighScore => PlayerPrefs.GetInt("Highscore");
 }

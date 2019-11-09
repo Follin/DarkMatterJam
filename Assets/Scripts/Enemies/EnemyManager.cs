@@ -47,16 +47,23 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Tongue"))
         {
             _gameManager.AddKillToPlayer();
+            Debug.Log("kill enemy");
+
             Destroy(gameObject);
-        }
-            
+        }     
 
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<HealthComponent>().TakeDamage(_damage);
+            Debug.Log("take damage");
+
+        }
+
+        if (other.gameObject.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
         }
 
     }
-
 
 }
