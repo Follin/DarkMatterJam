@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour
 {
     HealthComponent _playerHealth;
 
-    private int _amoutOfKills = 0;
+    private int _amoutOfKillsDark = 0;
+    private int _amoutOfKillsWhite = 0;
 
     [SerializeField]
     int _killLimit = 10;
@@ -23,26 +24,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_amoutOfKills >= _killLimit)
+        if (_amoutOfKillsDark >= _killLimit)
             _inDarkSpace = false;
     }
 
-    public void AddKillToPlayer() => ++_amoutOfKills;
+    public void AddKillToPlayer() => ++_amoutOfKillsDark;
 
-    public bool InDarkWorld() => _inDarkSpace;
-    
-
-
-   /* transform.LookAt(Player);
-     
-     if(Vector3.Distance(transform.position, Player.position) >= MinDist){
-     
-          transform.position += transform.forward* MoveSpeed*Time.deltaTime;
- 
-           
-           
-          if(Vector3.Distance(transform.position, Player.position) <= MaxDist)
-              {
-                 //Here Call any function U want Like Shoot at here or something*/
-
+    public bool InDarkWorld() => _inDarkSpace;     
 }
