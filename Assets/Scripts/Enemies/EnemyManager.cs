@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Sprite _enemyDarkWorld;
     [SerializeField] Sprite _enemyWhiteWorld;
     [SerializeField] Transform _player;
+    [SerializeField] int _distance;
 
     void Start()
     {
