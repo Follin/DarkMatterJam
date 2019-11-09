@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _highscoreText;
     [SerializeField] Image _deathScreen;
 
+    [Header("Creating Enemies")]
+    public GameObject[] EnemyPrefab;
+    private float _timer;
+
     private void Awake()
     {
         _playerHealth = FindObjectOfType<HealthComponent>();
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _timer = 2f;
         _playerHealth.ResetHealth();
         _sanityMeter = 0;
         _distance = 0;
@@ -36,6 +41,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (_timer > 0) {
+            _timer -= Time.deltaTime;
+        }
+
+        if (_timer <= 0) {
+            Instantiate(EnemyPrefab[1], new Vector3(0, 15, 0), Quaternion.identity);
+            _timer = 2;
+        }
+
         if (_sanityMeter >= 100)
             _inDarkSpace = false;
 
