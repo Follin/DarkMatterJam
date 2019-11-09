@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
        
     private int _amoutOfKills = 0;
 
-    public int GetAmountOfKills => _amoutOfKills;
+    [SerializeField]
+    int _killLimit = 10;
+
+    bool _inBlackSpace = true; //Black space is normal space. White space is danger-zone    
 
     private void Awake()
     {
@@ -16,8 +19,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _playerHealth.ResetHealth();
-
-
     }
+
+    private void Update()
+    {
+        if (_amoutOfKills >= _killLimit)
+            _inBlackSpace = false;
+    }
+
+    public void AddKillToPlayer() => ++_amoutOfKills;
 
 }
