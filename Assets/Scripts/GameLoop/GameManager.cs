@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int _killLimit = 10;
 
-    bool _inBlackSpace = true; //Black space is normal space. White space is danger-zone    
+    bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone    
 
     private void Awake()
     {
@@ -24,9 +24,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (_amoutOfKills >= _killLimit)
-            _inBlackSpace = false;
+            _inDarkSpace = false;
     }
 
     public void AddKillToPlayer() => ++_amoutOfKills;
+
+    public bool InDarkWorld() => _inDarkSpace;
 
 }
