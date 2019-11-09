@@ -5,18 +5,20 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 5f;
+    private float _speedDarkWorld = 5f;
+    private float _speedWhiteWorld = 12f;
     private Rigidbody _rb;
     [SerializeField] int _damage = 1;
     GameManager _gameManager;
     [SerializeField] Sprite _enemyDarkWorld;
     [SerializeField] Sprite _enemyWhiteWorld;
+    [SerializeField] Transform _player;
 
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _rb = GetComponent<Rigidbody>();
-        gameObject.GetComponent<SpriteRenderer>().sprite = _enemyDarkWorld;
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyDarkWorld;
 
         if (!_rb)
         {
@@ -24,17 +26,24 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
-        
+
     }
 
-    void EnemyMovement()
-    {
-        _rb.transform.position += -transform.up * _speed * Time.deltaTime;
-    }
+   
  
     void Update()
     {
-        
+
+
+        if (_gameManager.InDarkWorld())
+        {
+            _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
+        }
+        else 
+        {
+            transform.LookAt(_player);
+            transform.position += transform.forward * _speedWhiteWorld * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
