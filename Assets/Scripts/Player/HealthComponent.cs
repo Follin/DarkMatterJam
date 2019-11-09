@@ -24,6 +24,7 @@ public class HealthComponent : MonoBehaviour
     {
         Debug.Log("DEAD");
     }
+
     public void ResetHealth() => _playerHealth = _maxHealth;
 
 }

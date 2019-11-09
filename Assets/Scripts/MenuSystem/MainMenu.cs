@@ -18,6 +18,6 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
 }
