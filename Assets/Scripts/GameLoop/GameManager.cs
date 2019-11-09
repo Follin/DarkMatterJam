@@ -4,13 +4,12 @@ public class GameManager : MonoBehaviour
 {
     HealthComponent _playerHealth;
 
-    [SerializeField]
     private int _amoutOfKills = 0;
 
     [SerializeField]
     int _killLimit = 10;
 
-    bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone    
+    [SerializeField] bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone    
 
     private void Awake()
     {
@@ -31,5 +30,19 @@ public class GameManager : MonoBehaviour
     public void AddKillToPlayer() => ++_amoutOfKills;
 
     public bool InDarkWorld() => _inDarkSpace;
+    
+
+
+   /* transform.LookAt(Player);
+     
+     if(Vector3.Distance(transform.position, Player.position) >= MinDist){
+     
+          transform.position += transform.forward* MoveSpeed*Time.deltaTime;
+ 
+           
+           
+          if(Vector3.Distance(transform.position, Player.position) <= MaxDist)
+              {
+                 //Here Call any function U want Like Shoot at here or something*/
 
 }
