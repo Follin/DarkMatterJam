@@ -3,7 +3,8 @@
 public class GameManager : MonoBehaviour
 {
     HealthComponent _playerHealth;
-       
+
+    [SerializeField]
     private int _amoutOfKills = 0;
 
     [SerializeField]
