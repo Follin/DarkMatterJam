@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class TestMovement : MonoBehaviour {
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 2f;
 
     void Update() {
         float movement_y = Input.GetAxis("Vertical") * _speed;
         float movement_x = Input.GetAxis("Horizontal") * _speed;
-        movement_x *= Time.deltaTime;
-        movement_y *= Time.deltaTime;
-        transform.Translate(movement_x, movement_y, 0);
+
+        transform.position = transform.position + new Vector3(movement_x * _speed * Time.deltaTime, movement_y * _speed * Time.deltaTime, 0);
     }
 }
