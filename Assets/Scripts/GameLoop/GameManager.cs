@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _playerHealth.ResetHealth();
+
+
     }
 
 }

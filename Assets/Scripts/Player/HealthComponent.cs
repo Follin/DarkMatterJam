@@ -18,12 +18,12 @@ public class HealthComponent : MonoBehaviour
         if (_playerHealth <= 0) Death();
     }
 
-    void TakeDamage(int damage) => _playerHealth -= damage;
+    public void TakeDamage(int damage) => _playerHealth -= damage;
 
     void Death()
     {
         Debug.Log("DEAD");
     }
     public void ResetHealth() => _playerHealth = _maxHealth;
-    
+
 }
