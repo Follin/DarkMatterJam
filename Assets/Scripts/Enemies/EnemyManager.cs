@@ -26,15 +26,10 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
-
     }
-
-   
  
     void Update()
     {
-
-
         if (_gameManager.InDarkWorld())
         {
             _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
