@@ -2,11 +2,20 @@
 
 public class GameManager : MonoBehaviour
 {
-    bool _isStarting = false;
-
-    private int _amoutOfKills;
+    HealthComponent _playerHealth;
+       
+    private int _amoutOfKills = 0;
 
     public int GetAmountOfKills => _amoutOfKills;
-    
+
+    private void Awake()
+    {
+        _playerHealth = FindObjectOfType<HealthComponent>();
+    }
+
+    private void Start()
+    {
+        _playerHealth.ResetHealth();
+    }
 
 }

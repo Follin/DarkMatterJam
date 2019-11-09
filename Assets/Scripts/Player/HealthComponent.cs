@@ -22,7 +22,8 @@ public class HealthComponent : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("Death");
+        Debug.Log("DEAD");
     }
+    public void ResetHealth() => _playerHealth = _maxHealth;
     
 }
