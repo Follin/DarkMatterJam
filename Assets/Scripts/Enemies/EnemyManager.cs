@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Sprite _enemyDarkWorld;
     [SerializeField] Sprite _enemyWhiteWorld;
     [SerializeField] Transform _player;
-    [SerializeField] int _distance;
 
     void Start()
     {
@@ -30,7 +29,8 @@ public class EnemyManager : MonoBehaviour
     }
  
     void Update()
-    {
+    { 
+
         if (_gameManager.InDarkWorld())
         {
             _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
