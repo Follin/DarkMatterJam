@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Tongue
   - DeathZone
+  - FMOD
   layers:
   - Default
   - TransparentFX

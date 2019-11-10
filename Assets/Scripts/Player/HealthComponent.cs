@@ -6,6 +6,10 @@ public class HealthComponent : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 10;
 
+    [SerializeField]
+    private GameObject FMOD;
+    private FMODManager fmodManager;
+
     private int _playerHealth;
     private GameManager _gameManager;
     private Renderer renderer;
@@ -23,6 +27,7 @@ public class HealthComponent : MonoBehaviour
 
         _tookDamage = false;
         renderer = GetComponent<Renderer>();
+        fmodManager = FMOD.GetComponent<FMODManager>();
     }
 
     void Update()
@@ -44,7 +49,12 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage) => _playerHealth -= damage;  
+    public void TakeDamage(int damage)
+    {
+        _playerHealth -= damage;
+        fmodManager.PlayerHurt();
+    }
+    
 
     public void ChangeColor() {
         renderer.material.color = Color.Lerp(Color.white, new Color(0.2f, 0.2f, 0.2f, 1), Mathf.PingPong(Time.time, 1));

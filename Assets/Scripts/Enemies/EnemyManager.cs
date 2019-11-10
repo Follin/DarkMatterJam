@@ -16,12 +16,20 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Sprite _enemyWhiteWorld;
     HealthComponent _player;
 
+    [SerializeField]
+    private GameObject FMOD;
+    private FMODManager fmodManager;
+
+    private float counter;
+
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         _player = FindObjectOfType<HealthComponent>();
         _rb = GetComponent<Rigidbody>();
         gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyDarkWorld;
+        FMOD = GameObject.FindGameObjectWithTag("FMOD");
+        fmodManager = FMOD.GetComponent<FMODManager>();
 
         if (!_rb)
         {
@@ -46,6 +54,13 @@ public class EnemyManager : MonoBehaviour
             transform.LookAt(_player.gameObject.transform);
             transform.position += transform.forward * _speedDarkWorld / 3 * Time.deltaTime;
         }
+
+        counter += Random.Range(0, 10);
+        if(counter > 1000)
+        {
+            counter = 0;
+            fmodManager.EnemyAmbient();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +68,7 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Tongue"))
         {
             _gameManager.AddKillToPlayer();
+            fmodManager.EnemyDeath();
             // TODO: enemy death
             Destroy(gameObject);
         } 
@@ -60,6 +76,7 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<HealthComponent>().TakeDamage(_damage);
+            fmodManager.EnemyDeath();
             // TODO: enemy death
             Destroy(gameObject);
         }
@@ -68,7 +85,7 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("DeathZone"))        
+        if (other.gameObject.CompareTag("DeathZone"))   
             Destroy(gameObject);        
     }
 }

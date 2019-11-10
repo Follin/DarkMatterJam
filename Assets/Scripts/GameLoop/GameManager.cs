@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     private int _amoutOfKillsWhite = 0;
     private int _totalEnemiesToKill;
 
+    [SerializeField]
+    private GameObject FMOD;
+    private FMODManager fmodManager;
+
     private int _score;
     public float _sanityMeter = 0;
 
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
         _distance = 0;
         _deathScreen.gameObject.SetActive(false);
         _isDead = false;
+        fmodManager = FMOD.GetComponent<FMODManager>();
     }
 
     private void Update()
@@ -100,7 +105,8 @@ public class GameManager : MonoBehaviour
         _deathScreen.gameObject.SetActive(true);
         Time.timeScale = 0;
         _scoreText.text = "Your score: " + _score;
-        _highscoreText.text = "Highscore: " + GetHighScore;        
+        _highscoreText.text = "Highscore: " + GetHighScore;
+        fmodManager.PlayerDeath();
     }
 
     public void BackToMenu()
@@ -118,7 +124,9 @@ public class GameManager : MonoBehaviour
         _distance = 0;
         _deathScreen.gameObject.SetActive(false);
 
+        fmodManager.FadeOutGameMusic();
         SceneManager.LoadScene(1);
+        
     }
 
     void SpawnEnemies()

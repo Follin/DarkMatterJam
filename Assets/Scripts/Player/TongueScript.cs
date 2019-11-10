@@ -8,6 +8,9 @@ public class TongueScript : MonoBehaviour
     private Transform StartPosition;
     [SerializeField]
     private Transform EndPosition;
+    [SerializeField]
+    private GameObject FMOD;
+    private FMODManager fmodManager;
 
     private bool _tongueFired = false;
     private bool _retracting = false;
@@ -24,6 +27,7 @@ public class TongueScript : MonoBehaviour
         _startTime = Time.time;
         _journeyLength = Vector3.Distance(StartPosition.position, EndPosition.position);
         transform.position = StartPosition.position;
+        fmodManager = FMOD.GetComponent<FMODManager>();
     }
 
     void Update()
@@ -33,6 +37,7 @@ public class TongueScript : MonoBehaviour
         {
             _tongueFired = true;
             _timer = 0;
+            fmodManager.PlayerAttack();
         }
 
         if(_tongueFired || _retracting)
