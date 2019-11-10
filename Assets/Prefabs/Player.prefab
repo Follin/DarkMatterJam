@@ -366,7 +366,7 @@ MonoBehaviour:
   StartPosition: {fileID: 9041897074142781923}
   EndPosition: {fileID: 9041897075547039813}
   _speed: 1
-  _toungTime: 1
+  _toungTime: 0.3
 --- !u!65 &5425715143668072939
 BoxCollider:
   m_ObjectHideFlags: 0

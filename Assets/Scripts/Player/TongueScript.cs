@@ -8,8 +8,7 @@ public class TongueScript : MonoBehaviour
     private Transform StartPosition;
     [SerializeField]
     private Transform EndPosition;
-    [SerializeField]
-    private float _speed = 2f;
+
     private bool _tongueFired = false;
     private bool _retracting = false;
 
@@ -18,7 +17,7 @@ public class TongueScript : MonoBehaviour
     private float _journeyLength;
     private float _timer = 0;
 
-    [SerializeField] float _toungTime = 1;
+    [SerializeField] float _toungTime = 0.3f;
 
     private void Start()
      {
