@@ -39,9 +39,12 @@ public class EnemyManager : MonoBehaviour
         if (_gameManager.InDarkWorld())
         {
             _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
+            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyDarkWorld;
         }
         else 
         {
+            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyWhiteWorld;
+
             transform.LookAt(_player.gameObject.transform);
             transform.position += transform.forward * _speedDarkWorld / 3 * Time.deltaTime;
         }
