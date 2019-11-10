@@ -17,6 +17,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Transform _player;
     
 
+    public GameObject EnemyPrefab;
+
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
