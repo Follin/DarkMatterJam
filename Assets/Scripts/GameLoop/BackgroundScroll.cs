@@ -9,6 +9,7 @@ public class BackgroundScroll : MonoBehaviour
     Vector2 _startPosition;
     [SerializeField] GameObject _blackBackground;
     [SerializeField] GameObject _whiteBackground;
+    [SerializeField] GameObject _sanityBackground;
 
     GameManager _manager;
 
@@ -22,10 +23,23 @@ public class BackgroundScroll : MonoBehaviour
     private void Start()
     {
         _startPosition = transform.position;
+
+        Color temp = _sanityBackground.GetComponent<SpriteRenderer>().color;
+        temp.a = 0f;
+        _sanityBackground.GetComponent<SpriteRenderer>().color = temp;
     }
 
     private void Update()
     {
+        if(_manager.InDarkWorld())
+        {
+            _sanityBackground.SetActive(true);
+        }
+        else
+            _sanityBackground.SetActive(false);
+
+
+
         float newPosition = Mathf.Repeat(Time.time * ScrollScpeed, 10);
         transform.position = _startPosition + Vector2.up * newPosition;
 
@@ -39,5 +53,9 @@ public class BackgroundScroll : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
         }
+
+        Color temp = _sanityBackground.GetComponent<SpriteRenderer>().color;
+        temp.a = Mathf.Lerp(0, 1, _manager._sanityMeter / 100);
+        _sanityBackground.GetComponent<SpriteRenderer>().color = temp;
     }
 }

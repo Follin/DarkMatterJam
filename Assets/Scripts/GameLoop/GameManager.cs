@@ -49,8 +49,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        SpawnEnemies();
         SanityUpdate();
+        FromWhiteToDarkPlace();
+
+        if (InDarkWorld())
+            SpawnEnemies();
+
 
         if (!_isDead)
             IncreaseScore();
@@ -128,11 +132,12 @@ public class GameManager : MonoBehaviour
 
     void FromWhiteToDarkPlace()
     {
-        if (_amoutOfKillsWhite >= _totalEnemiesToKill)
+        if (_amoutOfKillsWhite >= _totalEnemiesToKill && !InDarkWorld())
         {
+            Debug.Log("whiteSpace");
             _amoutOfKillsDark = 0;
+            _sanityMeter = 0;
             _inDarkSpace = true;
-
         }
     }
 
