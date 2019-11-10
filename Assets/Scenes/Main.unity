@@ -703,6 +703,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6179527303539034b803ff492b24111b,
         type: 3}
+    - target: {fileID: 1038151394168473538, guid: 049596baef8b7f44a895e42d8c6cae5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1038151394168473537, guid: 049596baef8b7f44a895e42d8c6cae5f,
         type: 3}
       propertyPath: _blackBackground
@@ -745,6 +750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 34.31204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038151392885832454, guid: 049596baef8b7f44a895e42d8c6cae5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049596baef8b7f44a895e42d8c6cae5f, type: 3}
