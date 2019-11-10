@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8468198260552106032}
   - component: {fileID: 8823907863174332490}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -61,8 +61,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.2989163, y: 9.067466, z: 1}
+  m_Center: {x: -0.052426804, y: -0.36670017, z: 0}
 --- !u!114 &8468198260552106032
 MonoBehaviour:
   m_ObjectHideFlags: 0

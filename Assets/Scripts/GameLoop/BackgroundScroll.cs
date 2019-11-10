@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour
 {
-    [SerializeField] float _scrollScpeed = -5f;
+    public float ScrollScpeed = -3f;
 
 
     Vector2 _startPosition;
@@ -16,7 +16,7 @@ public class BackgroundScroll : MonoBehaviour
 
     private void Update()
     {
-        float newPosition = Mathf.Repeat(Time.time * _scrollScpeed, 10);
+        float newPosition = Mathf.Repeat(Time.time * ScrollScpeed, 10);
         transform.position = _startPosition + Vector2.up * newPosition;
 
 

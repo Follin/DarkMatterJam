@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private float _distance = 0;
 
     [SerializeField] bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone 
+    bool _isDead = false;
 
     [SerializeField] TextMeshProUGUI _scoreText;
     [SerializeField] TextMeshProUGUI _highscoreText;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         _sanityMeter = 0;
         _distance = 0;
         _deathScreen.gameObject.SetActive(false);
+        _isDead = false;
     }
 
     private void Update()
@@ -53,9 +55,8 @@ public class GameManager : MonoBehaviour
         if (_sanityMeter >= 100)
             _inDarkSpace = false;
 
-        IncreaseScore();
-
-        if (Input.GetKeyDown(KeyCode.P)) Death();
+        if (!_isDead)
+            IncreaseScore();
     }
 
     public void AddKillToPlayer()
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void Death()
     {
+        _isDead = true;
         _deathScreen.gameObject.SetActive(true);
         Time.timeScale = 0;
         _scoreText.text = "Your score: " + _score;
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        _isDead = false;
         Time.timeScale = 1;
 
         _playerHealth.ResetHealth();

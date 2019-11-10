@@ -53,13 +53,19 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<HealthComponent>().TakeDamage(_damage);
+            Debug.Log("Player hit");
         }
+
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
 
         if (other.gameObject.CompareTag("DeathZone"))
         {
             Destroy(gameObject);
         }
-
     }
 
 }
