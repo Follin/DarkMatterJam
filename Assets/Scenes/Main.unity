@@ -992,7 +992,12 @@ MonoBehaviour:
   _highscoreText: {fileID: 1706374381}
   _deathScreen: {fileID: 951554444}
   EnemyPrefab:
-  - {fileID: 487916730367766321, guid: ff0c20a70725241439c71bd5c347a0f2, type: 3}
+  - {fileID: 8551894697456129404, guid: f65d1dbd370d8f14dbdbe692f9add43a, type: 3}
+  - {fileID: 665436778226375874, guid: 5b650e66327725a4da32fd1a38c3a5c8, type: 3}
+  - {fileID: 2494288801361813218, guid: 55c7b6d52518faa4da36a46959feba99, type: 3}
+  - {fileID: 665436778226375874, guid: d510c7c49207f4b4a8c12b66e0b0b242, type: 3}
+  - {fileID: 665436778226375874, guid: c446efd8528199741804e107449a1d92, type: 3}
+  - {fileID: 665436778226375874, guid: ac5ff90bb6144de42a3544cd8412c9f0, type: 3}
   _killTime: 2
   _madness: 10
   _sanityRegain: 1

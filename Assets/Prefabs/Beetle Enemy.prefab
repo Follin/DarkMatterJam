@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 310502907965193233}
   - component: {fileID: 7014330730483800015}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: _dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423839761338914178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.18, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 487916730367766324}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &7014330730483800015
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24bee4c4ebcb2454cb8b927b524e748a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1599edf19cd77c40a3d0fd2222533e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487916730367766321}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 310502907965193233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &487916730367766320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.46438718, y: 0.46985722, z: 1}
-  m_Center: {x: -0.0002606362, y: -0.17371404, z: 0}
+  m_Size: {x: 0.79738486, y: 1.5977526, z: 1}
+  m_Center: {x: -0.005631551, y: -0.20056856, z: 0}
 --- !u!114 &8468198260552106032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   _speedDarkWorld: 5
   _speedWhiteWorld: 12
   _damage: 1
-  _enemyDarkWorld: {fileID: 21300000, guid: 24bee4c4ebcb2454cb8b927b524e748a, type: 3}
-  _enemyWhiteWorld: {fileID: 21300000, guid: d18e8d70ebfeb974e8c7e332d8cf2022, type: 3}
+  _enemyDarkWorld: {fileID: 21300000, guid: d1599edf19cd77c40a3d0fd2222533e0, type: 3}
+  _enemyWhiteWorld: {fileID: 21300000, guid: 923b1c5e263eda84cbf5dd2f05eaffc4, type: 3}
   EnemyPrefab: {fileID: 0}
 --- !u!212 &8823907863174332490
 SpriteRenderer:
