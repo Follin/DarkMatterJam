@@ -177,6 +177,7 @@ MonoBehaviour:
   StartPosition: {fileID: 4191709287244820412}
   EndPosition: {fileID: 4191709286635513370}
   _speed: 1
+  _toungTime: 1
 --- !u!65 &872773870003244980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 4191709286913583200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.13, y: -3.66, z: 0}
-  m_LocalScale: {x: 0.175, y: 0.175, z: 0.035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4191709285813705267}
   - {fileID: 4191709287244820412}

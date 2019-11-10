@@ -161,7 +161,7 @@ MonoBehaviour:
   _damage: 1
   _enemyDarkWorld: {fileID: 21300000, guid: 8fb681eacd3b62f42a7585a9cc4b02f6, type: 3}
   _enemyWhiteWorld: {fileID: 21300000, guid: fb7c4f6454308904ca1e732eb9fa10d9, type: 3}
-  _player: {fileID: 0}
+  _player: {fileID: 9041897073811842620, guid: ba157fb205b96cc48bb550f66f356206, type: 3}
 --- !u!212 &8823907863174332490
 SpriteRenderer:
   m_ObjectHideFlags: 0
