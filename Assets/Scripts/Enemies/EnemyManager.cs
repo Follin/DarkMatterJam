@@ -15,9 +15,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Sprite _enemyDarkWorld;
     [SerializeField] Sprite _enemyWhiteWorld;
     HealthComponent _player;
-    
-
-    public GameObject EnemyPrefab;
 
     void Start()
     {
@@ -39,11 +36,12 @@ public class EnemyManager : MonoBehaviour
         if (_gameManager.InDarkWorld())
         {
             _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
-            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyDarkWorld;
+            transform.GetChild(0).GetComponentInChildren<SpriteRenderer>().sprite = _enemyDarkWorld;
+
         }
         else 
         {
-            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _enemyWhiteWorld;
+            transform.GetChild(0).GetComponentInChildren<SpriteRenderer>().sprite = _enemyWhiteWorld; // SPRITE SYNS INTE
 
             transform.LookAt(_player.gameObject.transform);
             transform.position += transform.forward * _speedDarkWorld / 3 * Time.deltaTime;
