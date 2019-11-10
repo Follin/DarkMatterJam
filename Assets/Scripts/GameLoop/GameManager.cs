@@ -52,13 +52,13 @@ public class GameManager : MonoBehaviour
     {
         SanityUpdate();
 
-        if (_canSpawnWhite)
+       /* if (_canSpawnWhite)
         {
             _canSpawnWhite = false;
             SpawnInWhitePlace();
-        }
+        }*/
 
-        if (InDarkWorld())
+        //if (InDarkWorld())
             SpawnEnemies();
      
         FromWhiteToDarkPlace();
