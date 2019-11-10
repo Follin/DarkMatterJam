@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Collision detection!
 public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private float _speed = 2f;

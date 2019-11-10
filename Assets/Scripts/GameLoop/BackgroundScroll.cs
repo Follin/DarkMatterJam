@@ -6,8 +6,16 @@ public class BackgroundScroll : MonoBehaviour
 {
     public float ScrollScpeed = -3f;
 
-
     Vector2 _startPosition;
+    [SerializeField] GameObject _blackBackground;
+    [SerializeField] GameObject _whiteBackground;
+
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
+        Debug.Log(GetComponentInChildren<SpriteRenderer>().sprite.name); //= _whiteBackground.GetComponent<SpriteRenderer>().sprite;
+        GetComponentInChildren<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
+    }
 
     private void Start()
     {
@@ -18,7 +26,5 @@ public class BackgroundScroll : MonoBehaviour
     {
         float newPosition = Mathf.Repeat(Time.time * ScrollScpeed, 10);
         transform.position = _startPosition + Vector2.up * newPosition;
-
-
     }
 }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField]
-    private float _speedDarkWorld = 5f;
-    private float _speedWhiteWorld = 12f;
-    private Rigidbody _rb;
-    [SerializeField] int _damage = 1;
     GameManager _gameManager;
+    Rigidbody _rb;
+       
+    [SerializeField] private float _speedDarkWorld = 5f;
+    [SerializeField] private float _speedWhiteWorld = 12f;
+
+    [SerializeField] int _damage = 1;
+
     [SerializeField] Sprite _enemyDarkWorld;
     [SerializeField] Sprite _enemyWhiteWorld;
     [SerializeField] Transform _player;
+    
 
     void Start()
     {
@@ -29,8 +32,7 @@ public class EnemyManager : MonoBehaviour
     }
  
     void Update()
-    { 
-
+    {
         if (_gameManager.InDarkWorld())
         {
             _rb.transform.position += -transform.up * _speedDarkWorld * Time.deltaTime;
@@ -47,25 +49,22 @@ public class EnemyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Tongue"))
         {
             _gameManager.AddKillToPlayer();
+            // TODO: enemy death
             Destroy(gameObject);
-        }     
+        } 
 
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<HealthComponent>().TakeDamage(_damage);
-            Debug.Log("Player hit");
+            // TODO: enemy death
+            Destroy(gameObject);
         }
-
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-
-        if (other.gameObject.CompareTag("DeathZone"))
-        {
-            Destroy(gameObject);
-        }
+        if (other.gameObject.CompareTag("DeathZone"))        
+            Destroy(gameObject);        
     }
-
 }

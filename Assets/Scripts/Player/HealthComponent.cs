@@ -20,9 +20,7 @@ public class HealthComponent : MonoBehaviour
         if (_playerHealth <= 0) _gameManager.Death();
     }
 
-    public void TakeDamage(int damage) => _playerHealth -= damage;
-
-  
+    public void TakeDamage(int damage) => _playerHealth -= damage;  
 
     public void ResetHealth() => _playerHealth = _maxHealth;
 

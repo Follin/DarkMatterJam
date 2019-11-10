@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private int _amoutOfKillsDark = 0;
     private int _amoutOfKillsWhite = 0;
+    private int _totalEnemiesToKill;
 
     private int _score;
     private float _sanityMeter = 0;
@@ -43,17 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_timer > 0) {
-            _timer -= Time.deltaTime;
-        }
-
-        if (_timer <= 0) {
-            Instantiate(EnemyPrefab[1], new Vector3(0, 15, 0), Quaternion.identity);
-            _timer = 2;
-        }
-
-        if (_sanityMeter >= 100)
-            _inDarkSpace = false;
+        SpawnEnemies();
+        SanityUpdate();
 
         if (!_isDead)
             IncreaseScore();
@@ -88,11 +80,6 @@ public class GameManager : MonoBehaviour
         _highscoreText.text = "Highscore: " + GetHighScore;        
     }
 
-    void SanityUpdate()
-    {
-        //TODO: FIX
-    }
-
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
@@ -109,5 +96,42 @@ public class GameManager : MonoBehaviour
         _deathScreen.gameObject.SetActive(false);
 
         SceneManager.LoadScene(1);
+    }
+
+    void SpawnEnemies()
+    {
+        if (_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+        }
+
+        if (_timer <= 0)
+        {
+            Instantiate(EnemyPrefab[Random.Range(0, EnemyPrefab.Length)], new Vector3(0, 15, 0), Quaternion.identity);
+            _timer = 2;
+        }
+    }
+
+    void FromWhiteToDarkPlace()
+    {
+        if (_amoutOfKillsWhite >= _totalEnemiesToKill)
+        {
+            _amoutOfKillsDark = 0;
+            _inDarkSpace = true;
+
+        }
+    }
+
+    void SanityUpdate()
+    {
+        //TODO: increase/decrease sanity
+
+        if (_sanityMeter >= 100)
+        {
+            _totalEnemiesToKill = _amoutOfKillsDark;
+            _inDarkSpace = false;
+        }
+        else
+            _amoutOfKillsWhite = 0;
     }
 }
