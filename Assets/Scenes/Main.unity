@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688fc059aadd69445b741e75e3b1943d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sanityMeter: 0
   _inDarkSpace: 1
   _scoreText: {fileID: 2113407597}
   _highscoreText: {fileID: 1706374381}
@@ -926,6 +927,9 @@ MonoBehaviour:
   EnemyPrefab:
   - {fileID: 487916730367766321, guid: 52ec5741526f14827a7e2d47b2fc9a87, type: 3}
   - {fileID: 487916730367766321, guid: 52ec5741526f14827a7e2d47b2fc9a87, type: 3}
+  _killTime: 2
+  _madness: 10
+  _sanityRegain: 3
 --- !u!1 &1537404310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2046,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041897074142781923, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349273787985090886, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.9469132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349273787985090886, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.049416423
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349273787985090886, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.58615446
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349273787985090886, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 11.277693
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349273787985090886, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226967158555708005, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226967158555708005, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0013057452
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226967158555708005, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226967158555708005, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 9.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226967158555708005, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041897074725196899, guid: ba157fb205b96cc48bb550f66f356206,
+        type: 3}
+      propertyPath: _toungTime
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba157fb205b96cc48bb550f66f356206, type: 3}

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private int _totalEnemiesToKill;
 
     private int _score;
-    private float _sanityMeter = 0;
+    public float _sanityMeter = 0;
 
     private float _distance = 0;
 
@@ -25,7 +25,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Creating Enemies")]
     public GameObject[] EnemyPrefab;
-    private float _timer;
+    private float _enemuSpawnTimer;
+
+    float _timeOfLastKill;
+    [SerializeField] float _killTime = 2;
+    [SerializeField] float _madness = 10;
+    [SerializeField] float _sanityRegain = 3;
 
     private void Awake()
     {
@@ -34,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _timer = 2f;
+        _enemuSpawnTimer = 2f;
         _playerHealth.ResetHealth();
         _sanityMeter = 0;
         _distance = 0;
@@ -49,10 +54,19 @@ public class GameManager : MonoBehaviour
 
         if (!_isDead)
             IncreaseScore();
+
+        if(Time.time - _timeOfLastKill >= _killTime && _sanityMeter > 0)
+        {
+            _sanityMeter -= _sanityRegain * Time.deltaTime;
+            _sanityMeter = Mathf.Clamp(_sanityMeter , 0, 100);
+        }
     }
 
     public void AddKillToPlayer()
     {
+        _timeOfLastKill = Time.time;
+        _sanityMeter += _madness;
+
         if (_inDarkSpace) ++_amoutOfKillsDark;
         else
             ++_amoutOfKillsWhite;
@@ -100,15 +114,15 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemies()
     {
-        if (_timer > 0)
+        if (_enemuSpawnTimer > 0)
         {
-            _timer -= Time.deltaTime;
+            _enemuSpawnTimer -= Time.deltaTime;
         }
 
-        if (_timer <= 0)
+        if (_enemuSpawnTimer <= 0)
         {
             Instantiate(EnemyPrefab[Random.Range(0, EnemyPrefab.Length)], new Vector3(0, 15, 0), Quaternion.identity);
-            _timer = 2;
+            _enemuSpawnTimer = 2;
         }
     }
 
@@ -124,8 +138,6 @@ public class GameManager : MonoBehaviour
 
     void SanityUpdate()
     {
-        //TODO: increase/decrease sanity
-
         if (_sanityMeter >= 100)
         {
             _totalEnemiesToKill = _amoutOfKillsDark;

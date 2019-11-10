@@ -11,9 +11,14 @@ public class TongueScript : MonoBehaviour
     [SerializeField]
     private float _speed = 2f;
     private bool _tongueFired = false;
+    private bool _retracting = false;
+
+
     private float _startTime;
     private float _journeyLength;
-    private float _timer = 1;
+    private float _timer = 0;
+
+    [SerializeField] float _toungTime = 1;
 
     private void Start()
      {
@@ -28,32 +33,29 @@ public class TongueScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && !_tongueFired)
         {
             _tongueFired = true;
-            _timer = 1;
+            _timer = 0;
         }
 
-        if(_tongueFired)
+        if(_tongueFired || _retracting)
         {
+            _timer += Time.deltaTime * (_retracting ? -1f : 1f);
             Firetongue();
         }
 
-        if (_timer > 0)
+        if(_timer >= _toungTime)
         {
-            _timer -= Time.deltaTime;
+            _retracting = true;
         }
-
-        if(_timer <= 0)
-        {
-            transform.position = Vector3.Lerp(EndPosition.position, StartPosition.position, 2);
-        }
-
-        if(transform.position == StartPosition.position)
+               
+        if (_retracting && _timer <= 0)
         {
             _tongueFired = false;
+            _retracting = false;
         }
     }
 
     void Firetongue()
     {
-        transform.position = Vector3.Lerp(StartPosition.position, EndPosition.position, 2);
+        transform.position = Vector3.Lerp(StartPosition.position, EndPosition.position, _timer / _toungTime);
     }
 }

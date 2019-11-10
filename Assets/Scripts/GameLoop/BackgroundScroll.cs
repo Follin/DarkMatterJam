@@ -13,8 +13,7 @@ public class BackgroundScroll : MonoBehaviour
     private void Awake()
     {
         GetComponent<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
-        Debug.Log(GetComponentInChildren<SpriteRenderer>().sprite.name); //= _whiteBackground.GetComponent<SpriteRenderer>().sprite;
-        GetComponentInChildren<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _whiteBackground.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void Start()
