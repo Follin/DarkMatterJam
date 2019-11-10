@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24bee4c4ebcb2454cb8b927b524e748a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1599edf19cd77c40a3d0fd2222533e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8468198260552106032}
   - component: {fileID: 8823907863174332490}
   m_Layer: 0
-  m_Name: Enemy 3
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.46438718, y: 0.46985722, z: 1}
-  m_Center: {x: -0.0002606362, y: -0.17371404, z: 0}
+  m_Size: {x: 0.7044892, y: 1.2527986, z: 1}
+  m_Center: {x: -0.015919477, y: -0.13717711, z: 0}
 --- !u!114 &8468198260552106032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +159,10 @@ MonoBehaviour:
   _speedDarkWorld: 5
   _speedWhiteWorld: 12
   _damage: 1
-  _enemyDarkWorld: {fileID: 21300000, guid: 24bee4c4ebcb2454cb8b927b524e748a, type: 3}
-  _enemyWhiteWorld: {fileID: 21300000, guid: d18e8d70ebfeb974e8c7e332d8cf2022, type: 3}
+  _enemyDarkWorld: {fileID: 21300000, guid: d1599edf19cd77c40a3d0fd2222533e0, type: 3}
+  _enemyWhiteWorld: {fileID: 21300000, guid: 923b1c5e263eda84cbf5dd2f05eaffc4, type: 3}
+  _enemyDeathLeft: {fileID: 21300000, guid: 020ff98ce74f0db4ba462473bc994b02, type: 3}
+  _enemyDeathRight: {fileID: 0}
   _player: {fileID: 9041897073811842620, guid: ba157fb205b96cc48bb550f66f356206, type: 3}
 --- !u!212 &8823907863174332490
 SpriteRenderer:
