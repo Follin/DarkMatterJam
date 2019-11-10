@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] bool _inDarkSpace = true; //Black space is normal space. White space is danger-zone 
     bool _isDead = false;
+    bool _canSpawnWhite = false;
 
     [SerializeField] TextMeshProUGUI _scoreText;
     [SerializeField] TextMeshProUGUI _highscoreText;
@@ -50,10 +51,17 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         SanityUpdate();
-        FromWhiteToDarkPlace();
+
+        if (_canSpawnWhite)
+        {
+            _canSpawnWhite = false;
+            SpawnInWhitePlace();
+        }
 
         if (InDarkWorld())
             SpawnEnemies();
+     
+        FromWhiteToDarkPlace();
 
 
         if (!_isDead)
@@ -130,11 +138,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void SpawnInWhitePlace()
+    {
+        for (int i = 0; i < _totalEnemiesToKill; i++)
+        {
+            Instantiate(EnemyPrefab[Random.Range(0, EnemyPrefab.Length)], new Vector3(Random.Range(-7, 7), 15, 0), Quaternion.identity);
+        }
+    }
+
     void FromWhiteToDarkPlace()
     {
         if (_amoutOfKillsWhite >= _totalEnemiesToKill && !InDarkWorld())
         {
-            Debug.Log("whiteSpace");
             _amoutOfKillsDark = 0;
             _sanityMeter = 0;
             _inDarkSpace = true;
@@ -151,4 +166,6 @@ public class GameManager : MonoBehaviour
         else
             _amoutOfKillsWhite = 0;
     }
+
+
 }
